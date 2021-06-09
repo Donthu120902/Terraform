@@ -16,6 +16,8 @@ resource "aws_instance" "web"{
   provisioner "remote-exec" {
     inline = [
       "chmod 775 /tmp/script.sh",
+      "sudo yum install -y dos2unix",
+      "sudo dos2unix /tmp/script.sh",
       "sudo /tmp/script.sh",
     ]
   }
